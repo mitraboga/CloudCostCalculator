@@ -127,9 +127,10 @@ These routes are directly integrated with Lambda.
 
 Each route invokes a dedicated Lambda integration.
 
-<p align="center">
-  <img src="assets/APIGatewayRoutesIntegration.png" width="95%" alt="API Gateway Lambda Integration"/>
-</p>
+<details>
+  <summary><b>Click to expand (API Gateway Lambda Integration)</b></summary>
+  <img src="assets/APIGatewayRoutesIntegration.png" width="95%" alt="API Gateway Lambda Integration" />
+</details>
 
 This confirms:
 
@@ -230,9 +231,10 @@ A scheduled Lambda (`WeeklyReportFunction`) generates:
 
 ### Weekly Report Email Output
 
-<p align="center">
-  <img src="assets/WeeklyAWSCostReportEmail.png" width="95%" alt="Weekly AWS Cost Report Email"/>
-</p>
+<details>
+  <summary><b>Click to expand (Weekly AWS Cost Report Email)</b></summary>
+  <img src="assets/WeeklyAWSCostReportEmail.png" width="95%" alt="Weekly AWS Cost Report Email" />
+</details>
 
 This confirms:
 
