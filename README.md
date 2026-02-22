@@ -1,23 +1,5 @@
-<!-- ===================================================== -->
-<!--  🔥 GitHub Social Preview Setup (One-Time Action)    -->
-<!-- ===================================================== -->
-<!--
-After pushing this repo:
-
-1. Go to:
-   Settings → Social Preview
-2. Upload:
-   assets/github-social-preview.png
-3. Recommended size:
-   1200 x 630
--->
-
-<p align="center">
-  <img src="assets/cloud-cost-banner.svg" width="100%" alt="Cloud Cost Calculator Banner"/>
-</p>
-
-# ☁️ Cloud Cost Calculator  
-### Serverless AWS Cost Monitoring & Alerting Dashboard
+# 💰 AWS Cloud Cost Calculator ☁️
+### Real-Time AWS Cost Monitoring, Alerting & Reporting (Serverless Architecture)
 
 ![AWS](https://img.shields.io/badge/AWS-Serverless-orange?logo=amazonaws)
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
@@ -30,65 +12,62 @@ After pushing this repo:
 
 ---
 
-## 🚀 Overview
+## 🚀 Executive Summary
 
-Cloud Cost Calculator is a **production-grade, serverless AWS cost monitoring system** that transforms AWS billing data into:
+The **AWS Cloud Cost Calculator** is a fully deployed, serverless cost-monitoring system that:
 
-- 📊 Custom CloudWatch metrics  
-- 🚨 Automated cost threshold alerts  
-- 📬 Weekly cost summary emails  
-- 🌐 API-driven dashboard analytics  
+- Pulls **Month-to-Date (MTD)** spend from AWS Cost Explorer
+- Publishes a **custom CloudWatch metric**
+- Triggers **budget alarms automatically**
+- Sends **email alerts via Amazon SNS**
+- Generates **automated weekly cost reports**
+- Exposes a production-ready **API backend**
+- Powers a static dashboard hosted separately
 
-Built using:
-
-- AWS Lambda  
-- AWS Cost Explorer  
-- CloudWatch Custom Metrics  
-- CloudWatch Alarms  
-- SNS  
-- API Gateway  
-- S3 Static Hosting  
-
-Instead of manually checking AWS billing…
-
-**The infrastructure monitors itself.**
+This system eliminates surprise AWS bills by transforming billing data into actionable alerts and automated reporting.
 
 ---
 
-# 🎬 Live Cost Simulation
+## 🎯 Impact
 
-<div align="center">
-  <img src="assets/live-cost-simulation.gif" width="85%" alt="Live Cost Simulation"/>
-</div>
-
-This simulation demonstrates:
-
-- MTD metric publishing
-- Threshold breach detection
-- Alarm trigger → SNS email dispatch
-- Dashboard auto-refresh via API
+✔ Automated cost monitoring  
+✔ Zero hardcoded credentials (IAM-role secured)  
+✔ Event-driven serverless architecture  
+✔ Threshold-based alerting system  
+✔ Weekly financial reporting automation  
+✔ Production-grade AWS wiring  
 
 ---
 
 # 🏗 Architecture Overview
 
-<div align="center">
-  <img src="assets/architecture-diagram.svg" width="95%" alt="Cloud Cost Calculator Architecture Diagram"/>
-</div>
+The system uses AWS-native services in a fully serverless design.
 
----
+```
+AWS Cost Explorer
+        ↓
+MetricsPublisher Lambda
+        ↓
+CloudWatch Custom Metric (MTDSpendUSD)
+        ↓
+CloudWatch Alarms
+        ↓
+SNS Topic
+        ↓
+Email Alerts
+```
 
-## 🔎 Jump to Documentation Sections
+Separately:
 
-- [Cost Monitoring Pipeline](#cost-monitoring-pipeline)
-- [Lambda Functions](#lambda-functions)
-- [CloudWatch Metrics](#cloudwatch-metrics)
-- [CloudWatch Alarms](#cloudwatch-alarms)
-- [SNS Notifications](#sns-notifications)
-- [API Gateway](#api-gateway)
-- [S3 Dashboard Hosting](#s3-dashboard-hosting)
-- [Scalability & Production Considerations](#scalability--production-considerations)
-
+```
+API Gateway
+      ↓
+CostApiFunction Lambda
+      ↓
+Cost Explorer + S3 Mapping
+      ↓
+Dashboard JSON Snapshot
+```
 ---
 
 # Cost Monitoring Pipeline
@@ -119,109 +98,191 @@ Email Subscribers
 
 ---
 
-# Lambda Functions
+# 📸 Production Console Evidence
 
-- `cloud-cost-calculator-MetricsPublisherFunction-qHICp98n9xt3`
-- `cloud-cost-calculator-WeeklyReportFunction-gnA0HcUN1au`
-- `cloud-cost-calculator-CostApiFunction-Rfi5eNzo01d`
-
-Runtime: **Python 3.12**
-
-Responsibilities:
-
-- Fetch Cost Explorer billing data
-- Publish custom CloudWatch metrics
-- Compute week-over-week deltas
-- Serve API endpoints
+All screenshots below are from the live deployed environment in **us-east-1**.
 
 ---
 
-# CloudWatch Metrics
+## 🌐 API Gateway – Routes
 
-Namespace:
-```
-CloudCostCalculator
-```
+The backend exposes:
 
-Metric:
-```
-MTDSpendUSD
-```
+- `GET /health`
+- `GET /snapshot`
+- `GET /mapping`
+- `PUT /mapping`
 
-Purpose:
-Transforms billing data into a monitored infrastructure metric.
+These routes are directly integrated with Lambda.
+
+### Route Configuration
+
+<p align="center">
+  <img src="assets/APIGatewayRoutes.png" width="95%" alt="API Gateway Routes"/>
+</p>
 
 ---
 
-# CloudWatch Alarms
+### Lambda Integration
+
+Each route invokes a dedicated Lambda integration.
+
+<p align="center">
+  <img src="assets/APIGatewayRoutesIntegration.png" width="95%" alt="API Gateway Lambda Integration"/>
+</p>
+
+This confirms:
+
+- Stateless architecture  
+- Direct Lambda invocation  
+- Clean REST-based backend  
+
+---
+
+# 📊 Custom CloudWatch Metrics
+
+The system publishes:
+
+```
+Namespace: CloudCostCalculator
+Metric: MTDSpendUSD
+```
+
+This metric represents real Month-to-Date AWS spend.
+
+### CloudWatch Metric Visualization
+
+<p align="center">
+  <img src="assets/CloudWatchMetricGraph.png" width="95%" alt="CloudWatch Custom Metric Graph"/>
+</p>
+
+This demonstrates:
+
+- Successful metric publishing
+- Time-series tracking
+- Alarm threshold alignment
+
+---
+
+# 🚨 Budget Threshold Monitoring
+
+Three production alarms monitor cost thresholds:
 
 - `ccc-mtdspend-prod-ge-50`
+- `ccc-mtdspend-prod-ge-100`
 - `ccc-mtdspend-prod-ge-200`
 
-Behavior:
+Each alarm triggers when:
 
-- Evaluates `MTDSpendUSD`
-- Triggers on threshold breach
-- Publishes to SNS
+```
+MTDSpendUSD >= Threshold
+for 1 datapoint within 1 day
+```
 
-Alarm evaluation latency:
-**< 60 seconds after metric publish**
+### Alarm States & Conditions
+
+<p align="center">
+  <img src="assets/CloudWatchAlarmState.png" width="95%" alt="CloudWatch Alarm States"/>
+</p>
+
+This confirms:
+
+- Active alarm evaluation
+- Actions enabled
+- Correct metric binding
+- Production-ready alert logic
 
 ---
 
-# SNS Notifications
+# 📩 SNS – Alert Delivery Pipeline
 
-Topic:
+CloudWatch alarms publish to:
+
 ```
-cloud-cost-calculator-BudgetAlertsTopic-QejtJZ6FnhMF
+cloud-cost-calculator-BudgetAlertsTopic
 ```
 
-Protocol:
-- Email (Confirmed)
+Subscribers receive notifications when thresholds are breached.
 
-Used for:
-- Threshold alerts
-- Weekly summary reports
+### SNS Subscription Confirmation
 
-Delivery latency:
-**~5–15 seconds**
+<p align="center">
+  <img src="assets/SNSTopicConfirmation.png" width="95%" alt="SNS Subscription Confirmation"/>
+</p>
+
+This verifies:
+
+- Confirmed email subscription
+- Working alarm-to-SNS integration
+- Functional alert distribution
 
 ---
 
-# API Gateway
+# 📬 Automated Weekly AWS Cost Report
 
-API ID:
-```
-wgzvfgtlw1
-```
+A scheduled Lambda (`WeeklyReportFunction`) generates:
 
-Routes:
+- Current week total
+- Previous week total
+- Percentage change
+- Top services
+- Business-category breakdown
 
-- GET `/health`
-- GET `/snapshot`
-- GET `/mapping`
-- PUT `/mapping`
+### Weekly Report Email Output
 
-Snapshot API latency:
-**< 150ms**
+<p align="center">
+  <img src="assets/WeeklyAWSCostReportEmail.png" width="95%" alt="Weekly AWS Cost Report Email"/>
+</p>
+
+This confirms:
+
+- Programmatic cost aggregation
+- Week-over-week analysis
+- Automated formatting
+- Real SNS email delivery
 
 ---
 
-# S3 Dashboard Hosting
+# 🔒 Security Architecture
 
-Bucket:
-```
-cloud-cost-calculator-dashboardbucket-op8tdpgxt9ex
-```
+✔ No AWS credentials stored in repository  
+✔ Lambda uses IAM Execution Role  
+✔ No hardcoded keys  
+✔ CORS properly configured  
+✔ Environment variable isolation  
+✔ Least-privilege IAM policies  
 
-Region:
-`us-east-1`
+---
 
-Deploy via:
+# ⚙️ Scalability & Production Considerations
 
-```bash
-aws s3 sync dashboard/ s3://cloud-cost-calculator-dashboardbucket-op8tdpgxt9ex --delete
-```
+- Fully serverless (auto-scaling)
+- Event-driven architecture
+- Zero EC2 instances
+- CloudWatch metric-based observability
+- SNS-based decoupled alerting
+- S3-hosted static frontend (low cost)
+- Region-agnostic deployment
+
+This design supports scaling across accounts and multi-environment deployments.
+
+---
+
+# 📈 Cost Simulation Benchmarks
+
+| Scenario | Estimated Monthly Cost |
+|----------|------------------------|
+| Light Usage | <$1 |
+| Moderate Usage | ~$2–3 |
+| High Lambda Invocation Volume | ~$5 |
+
+Primary cost drivers:
+
+- Lambda invocations
+- CloudWatch metrics
+- SNS email volume
+
+Infrastructure remains highly cost-efficient.
 
 ---
 
@@ -234,6 +295,29 @@ aws s3 sync dashboard/ s3://cloud-cost-calculator-dashboardbucket-op8tdpgxt9ex -
 | SNS Delivery | 5–15s |
 | Manual Billing Time Reduction | ~90% |
 | Monthly Infra Cost | ~$2–$6 |
+
+---
+
+# 🧠 Key AWS Services Used
+
+- AWS Cost Explorer API (`ce:GetCostAndUsage`)
+- AWS Lambda
+- Amazon CloudWatch (Metrics + Alarms)
+- Amazon SNS
+- Amazon API Gateway
+- Amazon S3
+
+---
+
+# 📦 Repository Structure
+
+```
+backend/       → Lambda backend (Cost API)
+lambda/        → Scheduled metric/report functions
+dashboard/     → Static frontend
+infra/         → Deployment configs
+assets/        → README images
+```
 
 ---
 
@@ -259,37 +343,28 @@ aws s3 sync dashboard/ s3://cloud-cost-calculator-dashboardbucket-op8tdpgxt9ex -
 ## Advanced Monitoring
 - CloudWatch dashboards
 - Anomaly detection bands
-- Centralized observability export
-
----
-
-# 🔍 SEO Keywords
-
-AWS Cost Monitoring  
-Serverless Cost Dashboard  
-CloudWatch Custom Metrics  
-AWS Budget Alerts Alternative  
-Lambda Financial Automation  
-Cloud Cost Governance  
-Event-Driven Architecture  
-Serverless API Backend  
-
----
-
-# 📄 License
-
-MIT License
+- Centralized observability export 
 
 ---
 
 ## 👤 Author
 
 <p align="center">
-  <strong>Mitra Boga</strong><br/><br/>
+  <b>Mitra Boga</b><br>
   <a href="https://www.linkedin.com/in/bogamitra/">
-    <img src="https://img.shields.io/badge/LinkedIn-Mitra%20Boga-0A66C2?logo=linkedin&logoColor=white"/>
+    <img src="https://img.shields.io/badge/LinkedIn-bogamitra-blue?logo=linkedin">
   </a>
   <a href="https://x.com/techtraboga">
-    <img src="https://img.shields.io/badge/X-@techtraboga-000000?logo=twitter&logoColor=white"/>
+    <img src="https://img.shields.io/badge/X-techtraboga-black?logo=x">
   </a>
 </p>
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+> This repository demonstrates real-world AWS cost monitoring using a production-grade, serverless architecture.
