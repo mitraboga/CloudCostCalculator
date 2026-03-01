@@ -1,21 +1,29 @@
-# 💰 AWS Cloud Cost Calculator ☁️
-### Real-Time AWS Cost Monitoring, Alerting & Reporting (Serverless Architecture)
+<h1 align="center">💰 AWS Cloud Cost Calculator ☁️</h1>
+<h3 align="center">Real-Time AWS Cost Monitoring, Alerting & Reporting (Serverless Architecture)</h3>
 
-![AWS](https://img.shields.io/badge/AWS-Serverless-orange?logo=amazonaws)
-![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
-![CloudWatch](https://img.shields.io/badge/CloudWatch-Custom%20Metrics-green)
-![API Gateway](https://img.shields.io/badge/API%20Gateway-Regional-blue)
-![S3](https://img.shields.io/badge/S3-Static%20Hosting-red?logo=amazonaws)
-![SNS](https://img.shields.io/badge/SNS-Email%20Alerts-yellow)
-![Architecture](https://img.shields.io/badge/Architecture-Event--Driven-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
+<p align="center">
+  <img src="https://img.shields.io/badge/AWS-Serverless-orange?logo=amazonaws" alt="AWS" />
+  <img src="https://img.shields.io/badge/Python-3.12-blue?logo=python" alt="Python" />
+  <img src="https://img.shields.io/badge/CloudWatch-Custom%20Metrics-green" alt="CloudWatch" />
+  <img src="https://img.shields.io/badge/API%20Gateway-Regional-blue" alt="API Gateway" />
+  <img src="https://img.shields.io/badge/S3-Static%20Hosting-red?logo=amazonaws" alt="S3" />
+  <img src="https://img.shields.io/badge/SNS-Email%20Alerts-yellow" alt="SNS" />
+  <img src="https://img.shields.io/badge/Architecture-Event--Driven-brightgreen" alt="Architecture" />
+  <img src="https://img.shields.io/badge/License-MIT-lightgrey" alt="License" />
+</p>
 
 ---
 
-# 🌐 Live Interactive Dashboard
+<h1 align="center">🌐 Live Interactive Dashboard</h1>
 
-[![Live Demo](https://img.shields.io/badge/Live-Dashboard-brightgreen?style=for-the-badge&logo=github)](https://mitraboga.github.io/CloudCostCalculator/)
-[![API Status](https://img.shields.io/badge/API-Production-blue?style=for-the-badge)](#-production-console-evidence)
+<p align="center">
+  <a href="https://mitraboga.github.io/CloudCostCalculator/">
+    <img src="https://img.shields.io/badge/Live-Dashboard-brightgreen?style=for-the-badge&logo=github" alt="Live Demo" />
+  </a>
+  <a href="#-production-console-evidence">
+    <img src="https://img.shields.io/badge/API-Production-blue?style=for-the-badge" alt="API Status" />
+  </a>
+</p>
 
 <p align="center">
   <a href="https://mitraboga.github.io/CloudCostCalculator/" target="_blank" rel="noopener noreferrer">
@@ -23,7 +31,7 @@
   </a>
 </p>
 
-> 🔎 Click the preview above to open the live-deployed dashboard.
+<p align="center"><i>🔎 Click the preview above to open the live-deployed dashboard.</i></p>
 
 ### What You'll See:
 
@@ -40,6 +48,87 @@ GET /snapshot
 ```
 
 and renders real cost data from AWS Cost Explorer.
+
+---
+
+# 🧩 UML Diagrams (Software Engineering Documentation)
+
+These **9 foundational UML diagrams** document the CloudCostCalculator system from both:
+- **Structural views** (what the system *is made of*)
+- **Behavioral views** (how the system *acts over time*)
+
+Each diagram below is **click-to-open**.
+
+---
+
+## 🧱 Structural UML Diagrams
+
+<details>
+  <summary><b>Class Diagram</b></summary>
+  <p align="center">
+    <img src="assets/SS_Class_UML.png" width="95%" alt="Class Diagram (CloudCostCalculator)"/>
+  </p>
+</details>
+
+<details>
+  <summary><b>Object Diagram</b></summary>
+  <p align="center">
+    <img src="assets/SS_Object_UML.png" width="95%" alt="Object Diagram (CloudCostCalculator)"/>
+  </p>
+</details>
+
+<details>
+  <summary><b>Component Diagram</b></summary>
+  <p align="center">
+    <img src="assets/SS_Component_UML.png" width="95%" alt="Component Diagram (CloudCostCalculator)"/>
+  </p>
+</details>
+
+<details>
+  <summary><b>Deployment Diagram</b></summary>
+  <p align="center">
+    <img src="assets/SS_Deployment_UML.png" width="95%" alt="Deployment Diagram (CloudCostCalculator)"/>
+  </p>
+</details>
+
+---
+
+## 🎭 Behavioural UML Diagrams
+
+<details>
+  <summary><b>Use Case Diagram</b></summary>
+  <p align="center">
+    <img src="assets/SS_UseCase_UML.png" width="95%" alt="Use Case Diagram (CloudCostCalculator)"/>
+  </p>
+</details>
+
+<details>
+  <summary><b>Sequence Diagram</b></summary>
+  <p align="center">
+    <img src="assets/SS_Sequence_UML.png" width="95%" alt="Sequence Diagram (CloudCostCalculator)"/>
+  </p>
+</details>
+
+<details>
+  <summary><b>Communication Diagram</b></summary>
+  <p align="center">
+    <img src="assets/SS_Communication_UML.png" width="95%" alt="Communication Diagram (CloudCostCalculator)"/>
+  </p>
+</details>
+
+<details>
+  <summary><b>Activity Diagram</b></summary>
+  <p align="center">
+    <img src="assets/SS_Activity_UML.png" width="95%" alt="Activity Diagram (CloudCostCalculator)"/>
+  </p>
+</details>
+
+<details>
+  <summary><b>State Machine Diagram</b></summary>
+  <p align="center">
+    <img src="assets/SS_StateMachine_UML.png" width="95%" alt="State Machine Diagram (CloudCostCalculator)"/>
+  </p>
+</details>
 
 ---
 
