@@ -14,17 +14,6 @@
 
 ---
 
-<h1 align="center">🌐 Live Interactive Dashboard</h1>
-
-<p align="center">
-  <a href="https://mitraboga.github.io/CloudCostCalculator/">
-    <img src="https://img.shields.io/badge/Live-Dashboard-brightgreen?style=for-the-badge&logo=github" alt="Live Demo" />
-  </a>
-  <a href="#-production-console-evidence">
-    <img src="https://img.shields.io/badge/API-Production-blue?style=for-the-badge" alt="API Status" />
-  </a>
-</p>
-
 <p align="center">
   <a href="https://mitraboga.github.io/CloudCostCalculator/" target="_blank" rel="noopener noreferrer">
     <img src="assets/dashboard-preview.gif" width="95%" alt="Live Cloud Cost Dashboard Preview"/>
