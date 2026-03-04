@@ -148,6 +148,18 @@ This system eliminates surprise AWS bills by transforming billing data into acti
 
 ---
 
+<h1 align="center">☁️ Cloudcraft AWS Cloud Architecture 👷🏼‍♂️</h1>
+
+<p align="center">
+  <a href="assets/CloudcraftArchitecture.png">
+    <img src="assets/Cloud Architecture us-east-1.png" width="95%" alt="Cloudcraft AWS Cloud Architecture (CloudCostCalculator)"/>
+  </a>
+</p>
+
+<p align="center"><i>Deployed serverless resources in us-east-1 + curated connections to reflect the end-to-end CCC pipeline.</i></p>
+
+---
+
 # 🏗 Architecture Overview
 
 The system uses AWS-native services in a fully serverless design.
