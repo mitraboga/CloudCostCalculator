@@ -40,7 +40,7 @@ and renders real cost data from AWS Cost Explorer.
 
 ---
 
-# 🧩 UML Diagrams (Software Engineering Documentation)
+# 🧩 UML Diagrams (Software Engineer Documentation)
 
 These **9 foundational UML diagrams** document the CloudCostCalculator system from both:
 - **Structural views** (what the system *is made of*)
