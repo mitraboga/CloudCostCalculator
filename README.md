@@ -15,7 +15,7 @@
 ---
 
 <p align="center">
-  <a href="https://mitraboga.github.io/CloudCostCalculator/" target="_blank" rel="noopener noreferrer">
+  <a href="[https://mitraboga.github.io/CloudCostCalculator/](https://smartattend-e4pk3jnsgry5egn8jppsmr.streamlit.app/)" target="_blank" rel="noopener noreferrer">
     <img src="assets/dashboard-preview.gif" width="95%" alt="Live Cloud Cost Dashboard Preview"/>
   </a>
 </p>
