@@ -473,20 +473,14 @@ assets/        → README images
 ## 👤 Author
 
 <p align="center">
-  <b>Mitra Boga</b><br>
+  <b>Mitra Boga</b><br><br>
   <a href="https://www.linkedin.com/in/bogamitra/">
-    <img src="https://img.shields.io/badge/LinkedIn-bogamitra-blue?logo=linkedin">
+    <img src="https://img.shields.io/badge/LinkedIn-Mitra%20Boga-blue?style=for-the-badge&logo=linkedin"/>
   </a>
   <a href="https://x.com/techtraboga">
-    <img src="https://img.shields.io/badge/X-techtraboga-black?logo=x">
+    <img src="https://img.shields.io/badge/X-@techtraboga-black?style=for-the-badge&logo=twitter"/>
   </a>
 </p>
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
 
 ---
 
